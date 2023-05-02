@@ -1,4 +1,4 @@
 package com.example.demo.User;
 
-public class UserCreateDto {
+public record UserCreateDto (int UserId, String userName, String userEmail){
 }

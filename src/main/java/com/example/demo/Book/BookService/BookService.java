@@ -17,13 +17,13 @@ public class BookService {
 
     private final BookRepository bookRepository;
 
-    public BookCreateDto addBookToTheList(final String bookAuthor, final String bookTitle, boolean bookStatus) {
-        BookData data = new BookData();
-        data.setBookAuthor(bookAuthor);
-        data.setBookTitle(bookTitle);
-        data.setBookStatus(bookStatus);
+    public BookCreateDto addBook(final String bookAuthor, final String bookTitle, boolean bookStatus) {
+        BookData dataBook = new BookData();
+        dataBook.setBookAuthor(bookAuthor);
+        dataBook.setBookTitle(bookTitle);
+        dataBook.setBookStatus(bookStatus);
 
-        BookData bookData = bookRepository.save(data);
+        BookData bookData = bookRepository.save(dataBook);
         return new BookCreateDto(bookData.getBookId(),bookData.getBookTitle(),bookData.getBookAuthor(),bookData.isBookStatus());
     }
 
@@ -33,7 +33,7 @@ public class BookService {
     }
 
 
-    public void save(BookCreateDto bookCreateDto) {
+    public void saveBook(BookCreateDto bookCreateDto) {
     }
 
     public void deleteBookByTitle(String bookTitle) {
